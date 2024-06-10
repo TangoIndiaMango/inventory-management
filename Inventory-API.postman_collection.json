@@ -217,6 +217,107 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "Get Supplier Item",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/inventory/suppliers/:supplier_id/items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"suppliers",
+								":supplier_id",
+								"items"
+							],
+							"variable": [
+								{
+									"key": "supplier_id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Supplier Item",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/inventory/suppliers/:supplier_id/items",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"inventory",
+										"suppliers",
+										":supplier_id",
+										"items"
+									],
+									"variable": [
+										{
+											"key": "supplier_id",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 17:30:55 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "2079"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 5,\n        \"name\": \"IHiescense TV 430\",\n        \"price\": \"120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T09:50:29.914019Z\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"IHiescense TV 430\",\n        \"price\": \"120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T09:50:54.138084Z\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Sony Explorer TV 430\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T12:05:58.225132Z\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Sony Explorer TV 430\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T12:06:55.938180Z\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Sony Explorer TV 430\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T12:15:39.103797Z\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"Sony Explorer TV 430\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T12:22:00.178417Z\"\n    },\n    {\n        \"id\": 17,\n        \"name\": \"Wooden Frame\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T13:15:09.395873Z\"\n    },\n    {\n        \"id\": 19,\n        \"name\": \"Counter effect of woodend Frames\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T13:18:13.652784Z\"\n    },\n    {\n        \"id\": 20,\n        \"name\": \"Counter effect\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T15:22:48.161228Z\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"Manterial Sheets 104\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T13:08:18.502389Z\"\n    },\n    {\n        \"id\": 22,\n        \"name\": \"Airpods Pro\",\n        \"price\": \"2120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T15:49:27.688394Z\"\n    },\n    {\n        \"id\": 23,\n        \"name\": \"Airpods Max\",\n        \"price\": \"120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T15:52:23.453754Z\"\n    }\n]"
+						}
+					]
 				}
 			],
 			"description": "**GET** `/api/inventory/suppliers/`\n\n- List all suppliers.\n    \n\n**POST** `/api/inventory/suppliers/`\n\n- Create a new supplier.\n    \n- Request body: `{ \"name\": \"Supplier Name\", \"contact_info\": \"Contact Information\" }`\n    \n\n**GET** `/api/inventory/suppliers/{id}/`\n\n- Retrieve a single supplier by ID.\n    \n\n**PATCH** `/api/inventory/suppliers/{id}/`\n\n- Update a supplier by ID.\n    \n- Request body: `{ \"name\": \"Updated Name\", \"contact_info\": \"Updated Contact Information\" }`\n    \n\n**DELETE** `/api/inventory/suppliers/{id}/`\n\n- Delete a supplier by ID."
@@ -224,6 +325,107 @@
 		{
 			"name": "Inventory Item",
 			"item": [
+				{
+					"name": "Get Item Supplier",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/inventory/items/:item_id/suppliers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								":item_id",
+								"suppliers"
+							],
+							"variable": [
+								{
+									"key": "item_id",
+									"value": "23"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Item Supplier",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/inventory/items/:item_id/suppliers",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"inventory",
+										"items",
+										":item_id",
+										"suppliers"
+									],
+									"variable": [
+										{
+											"key": "item_id",
+											"value": "23"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 17:37:17 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "218"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Timi Default One\",\n        \"contact_info\": \"+1 234 906 789\",\n        \"created_at\": \"2024-06-10T09:15:30.169904Z\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Priority Soft\",\n        \"contact_info\": \"+1 234 906 789\",\n        \"created_at\": \"2024-06-10T09:43:47.868993Z\"\n    }\n]"
+						}
+					]
+				},
 				{
 					"name": "Get Items",
 					"protocolProfileBehavior": {

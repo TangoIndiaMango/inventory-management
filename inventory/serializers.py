@@ -51,3 +51,14 @@ class ItemDetailSerializer(serializers.ModelSerializer):
     
     def get_suppliers(self, obj):
         return [f"{supplier.id}: {supplier.name}" for supplier in obj.suppliers.all()]
+
+
+class ItemDataWithoutSupplierSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Item
+        fields = ['id', 'name', 'price', 'description', 'created_at']
+        
+class SupplierDataWithoutItemsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Supplier
+        fields = ['id', 'name', 'contact_info', 'created_at']

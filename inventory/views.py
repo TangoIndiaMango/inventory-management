@@ -1,10 +1,12 @@
 from django.shortcuts import render
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.views import APIView
 
 from .models import Item, Supplier
-from .serializers import ItemDetailSerializer, ItemSerializer, SupplierSerializer
+from .serializers import ItemDataWithoutSupplierSerializer, ItemDetailSerializer, ItemSerializer, SupplierDataWithoutItemsSerializer, SupplierSerializer
 from rest_framework.response import Response
 from rest_framework import status
+from django.shortcuts import get_object_or_404
 
 # Create your views here.
 
@@ -152,3 +154,42 @@ class ItemViewSet(ModelViewSet):
         return Response(
             {"message": "Item deleted successfully"}, status=status.HTTP_204_NO_CONTENT
         )
+
+
+class GetSupplierItems(APIView):
+    """
+    View for handling all the Items supplied by a supplier.
+    """
+    
+    def get(self, request, supplier_id, *args, **kwargs):
+        """
+        Retrieve all the Items supplied by a supplier.
+
+        It returns a list of Item data with a 200 OK status.
+        """
+        
+        supplier = get_object_or_404(Supplier, id=supplier_id)
+        
+        items = supplier.items.all()
+        serializer = ItemDataWithoutSupplierSerializer(items, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+class GetItemsSupplier(APIView):
+    """
+    View for handling all the Items supplied by a supplier.
+    """
+    
+    def get(self, request, item_id, *args, **kwargs):
+        """
+        Retrieve all the Suppliers for an item.
+
+        It returns a list of suppliers data with a 200 OK status.
+        """
+        
+        items = get_object_or_404(Item, id=item_id)
+        
+        suppliers = items.suppliers.all()
+        serializer = SupplierDataWithoutItemsSerializer(suppliers, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+        
