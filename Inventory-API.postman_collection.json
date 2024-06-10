@@ -35,7 +35,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Mendeor ThankHin\",\r\n    \"contact_info\": \"+1 234 906 789\",\r\n    \"items\": [2, 3]\r\n}",
+							"raw": "{\r\n    \"name\": \"Secret User\",\r\n    \"contact_info\": \"+1 234 906 789\",\r\n    \"items\": [\r\n        {\r\n            \"name\": \"Monitor LCD curved\",\r\n            \"description\": \"This item is a valuable cross road enterprise data insence\",\r\n            \"price\": \"120.99\"\r\n        },\r\n        {\r\n            \"name\": \"Pangea Cup\",\r\n            \"description\": \"This item is a valuable cross road enterprise data insence\",\r\n            \"price\": \"1120.99\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -84,7 +84,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "3"
+									"value": "1"
 								}
 							]
 						}
@@ -98,7 +98,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"items\": 1,\r\n    \"contact_info\": \"+23 819 709\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Secret TwoTango\",\r\n    \"contact_info\": \"+1 234 906 789\",\r\n    \"items\": [\r\n        {\r\n            \"name\": \"Wantaga\",\r\n            \"description\": \"Shut\",\r\n            \"price\": \"209.99\"\r\n        },\r\n        {\r\n            \"id\": 10,\r\n            \"name\": \"Pangea World\",\r\n            \"description\": \"PS5\",\r\n            \"price\": \"1209.99\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -119,12 +119,94 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "2"
+									"value": "4"
 								}
 							]
 						}
 					},
-					"response": []
+					"response": [
+						{
+							"name": "Update Suppliers Copy",
+							"originalRequest": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Timmy TwoTango\",\r\n    \"contact_info\": \"+1 234 906 789\",\r\n    \"items\": [\r\n        // {\r\n        //     \"name\": \"Football\",\r\n        //     \"description\": \"Game\",\r\n        //     \"price\": \"209.99\"\r\n        // },\r\n        // {\r\n        //     \"id\": 8,\r\n        //     \"name\": \"Football CR7\",\r\n        //     \"description\": \"PS5\",\r\n        //     \"price\": \"1209.99\"\r\n        // }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/inventory/suppliers/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"inventory",
+										"suppliers",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "4"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 22:12:35 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "1197"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Updated Supplier successfully\",\n    \"data\": {\n        \"id\": 3,\n        \"items\": [\n            {\n                \"id\": 4,\n                \"name\": \"Merin Flocks\",\n                \"description\": \"Flocks data beware\",\n                \"price\": \"1120.99\",\n                \"created_at\": \"2024-06-10T21:40:19.788495Z\",\n                \"updated_at\": \"2024-06-10T21:40:19.788495Z\"\n            },\n            {\n                \"id\": 5,\n                \"name\": \"Rollie Shirt\",\n                \"description\": \"This item is a valuable cross road enterprise data insence\",\n                \"price\": \"120.99\",\n                \"created_at\": \"2024-06-10T21:40:19.814806Z\",\n                \"updated_at\": \"2024-06-10T21:40:19.814806Z\"\n            },\n            {\n                \"id\": 6,\n                \"name\": \"Briggs Perfume De elante\",\n                \"description\": \"Perfume\",\n                \"price\": \"20.99\",\n                \"created_at\": \"2024-06-10T21:59:00.655190Z\",\n                \"updated_at\": \"2024-06-10T21:59:00.655190Z\"\n            },\n            {\n                \"id\": 7,\n                \"name\": \"Briggs De elante\",\n                \"description\": \"Perfume\",\n                \"price\": \"209.99\",\n                \"created_at\": \"2024-06-10T22:08:49.846275Z\",\n                \"updated_at\": \"2024-06-10T22:08:49.846275Z\"\n            },\n            {\n                \"id\": 8,\n                \"name\": \"Football CR7\",\n                \"description\": \"PS5\",\n                \"price\": \"1209.99\",\n                \"created_at\": \"2024-06-10T22:10:42.918449Z\",\n                \"updated_at\": \"2024-06-10T22:10:42.918449Z\"\n            }\n        ],\n        \"items_data\": [\n            \"4: Merin Flocks\",\n            \"5: Rollie Shirt\",\n            \"6: Briggs Perfume De elante\",\n            \"7: Briggs De elante\",\n            \"8: Football CR7\"\n        ],\n        \"name\": \"Timmy TwoTango\",\n        \"contact_info\": \"+1 234 906 789\",\n        \"created_at\": \"2024-06-10T21:40:19.779444Z\",\n        \"updated_at\": \"2024-06-10T22:12:35.940248Z\"\n    }\n}"
+						}
+					]
 				},
 				{
 					"name": "Get single Supplier",
@@ -172,7 +254,7 @@
 							"variable": [
 								{
 									"key": "supplier_id",
-									"value": "1"
+									"value": "3"
 								}
 							]
 						}
@@ -250,6 +332,79 @@
 							],
 							"cookie": [],
 							"body": "[\n    {\n        \"id\": 5,\n        \"name\": \"IHiescense TV 430\",\n        \"price\": \"120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T09:50:29.914019Z\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"IHiescense TV 430\",\n        \"price\": \"120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T09:50:54.138084Z\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Sony Explorer TV 430\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T12:05:58.225132Z\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Sony Explorer TV 430\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T12:06:55.938180Z\"\n    },\n    {\n        \"id\": 9,\n        \"name\": \"Sony Explorer TV 430\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T12:15:39.103797Z\"\n    },\n    {\n        \"id\": 10,\n        \"name\": \"Sony Explorer TV 430\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T12:22:00.178417Z\"\n    },\n    {\n        \"id\": 17,\n        \"name\": \"Wooden Frame\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T13:15:09.395873Z\"\n    },\n    {\n        \"id\": 19,\n        \"name\": \"Counter effect of woodend Frames\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T13:18:13.652784Z\"\n    },\n    {\n        \"id\": 20,\n        \"name\": \"Counter effect\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T15:22:48.161228Z\"\n    },\n    {\n        \"id\": 14,\n        \"name\": \"Manterial Sheets 104\",\n        \"price\": \"1120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T13:08:18.502389Z\"\n    },\n    {\n        \"id\": 22,\n        \"name\": \"Airpods Pro\",\n        \"price\": \"2120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T15:49:27.688394Z\"\n    },\n    {\n        \"id\": 23,\n        \"name\": \"Airpods Max\",\n        \"price\": \"120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T15:52:23.453754Z\"\n    }\n]"
+						},
+						{
+							"name": "Get Supplier Item",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/inventory/suppliers/:supplier_id/items",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"inventory",
+										"suppliers",
+										":supplier_id",
+										"items"
+									],
+									"variable": [
+										{
+											"key": "supplier_id",
+											"value": "3"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 22:11:38 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "862"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 4,\n        \"name\": \"Merin Flocks\",\n        \"description\": \"Flocks data beware\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T21:40:19.788495Z\",\n        \"updated_at\": \"2024-06-10T21:40:19.788495Z\"\n    },\n    {\n        \"id\": 5,\n        \"name\": \"Rollie Shirt\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"120.99\",\n        \"created_at\": \"2024-06-10T21:40:19.814806Z\",\n        \"updated_at\": \"2024-06-10T21:40:19.814806Z\"\n    },\n    {\n        \"id\": 6,\n        \"name\": \"Briggs Perfume De elante\",\n        \"description\": \"Perfume\",\n        \"price\": \"20.99\",\n        \"created_at\": \"2024-06-10T21:59:00.655190Z\",\n        \"updated_at\": \"2024-06-10T21:59:00.655190Z\"\n    },\n    {\n        \"id\": 7,\n        \"name\": \"Briggs De elante\",\n        \"description\": \"Perfume\",\n        \"price\": \"209.99\",\n        \"created_at\": \"2024-06-10T22:08:49.846275Z\",\n        \"updated_at\": \"2024-06-10T22:08:49.846275Z\"\n    },\n    {\n        \"id\": 8,\n        \"name\": \"Football\",\n        \"description\": \"Game\",\n        \"price\": \"209.99\",\n        \"created_at\": \"2024-06-10T22:10:42.918449Z\",\n        \"updated_at\": \"2024-06-10T22:10:42.918449Z\"\n    }\n]"
 						}
 					]
 				}

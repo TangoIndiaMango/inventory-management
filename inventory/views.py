@@ -3,7 +3,12 @@ from rest_framework.viewsets import ModelViewSet
 from rest_framework.views import APIView
 
 from .models import Item, Supplier
-from .serializers import ItemSerializer, SupplierDataWithoutItemsSerializer, SupplierDetailSerializer, SupplierSerializer
+from .serializers import (
+    ItemSerializer,
+    SupplierDataWithoutItemsSerializer,
+    SupplierDetailSerializer,
+    SupplierSerializer,
+)
 from rest_framework.response import Response
 from rest_framework import status
 from django.shortcuts import get_object_or_404
@@ -85,7 +90,8 @@ class SupplierViewSet(ModelViewSet):
 
         if not queryset.exists():
             return Response(
-                {"message": "No Suppliers available."}, status=status.HTTP_204_NO_CONTENT
+                {"message": "No Suppliers available."},
+                status=status.HTTP_204_NO_CONTENT,
             )
         serializer = self.get_serializer(queryset, many=True)
         return Response(serializer.data)
@@ -101,16 +107,26 @@ class SupplierViewSet(ModelViewSet):
         serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
 
-        item_ids = serializer.validated_data.get("items", None)
-        if item_ids is not None:
-            serializer.validated_data.pop("items")
+        items_data = serializer.validated_data.get("items", [])
+
+        if items_data is None:
+            return Response(
+                {"message": "At least one item is required."},
+                status=status.HTTP_400_BAD_REQUEST,
+            )
+        serializer.validated_data.pop("items")
 
         supplier = serializer.save()
 
-        if item_ids is not None:
-            for item_id in item_ids:
-                supplier.items.add(item_id)
-
+        # for item in items:
+        #     item, _ = Item.objects.get_or_create(**item)
+        #     supplier.items.add(item)
+        
+        items = [Item(**item) for item in items_data]
+        created_items = Item.objects.bulk_create(items)
+        supplier.items.add(*created_items)
+        
+        serializer = self.get_serializer(supplier)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
     def update(self, request, *args, **kwargs):
@@ -127,15 +143,31 @@ class SupplierViewSet(ModelViewSet):
 
         serializer.is_valid(raise_exception=True)
 
-        item_ids = serializer.validated_data.get("items", None)
-        if item_ids is not None:
-            serializer.validated_data.pop("items")
+        items = request.data.get("items", None)
+    
+        if items is not None:
+            serializer.validated_data.pop("items", None)
 
-        supplier = serializer.save()
+        # save the suppliers info
+        serializer.save()
 
-        if item_ids is not None:
-            for item_id in item_ids:
-                supplier.items.add(item_id)
+        # updating the list of items a supplier provides
+        if items is not None:
+            
+            #  Get all the exxisiting items incase the user wants to update it
+            existing_item_ids = {item.id for item in instance.items.all()}
+
+            new_items = []
+            
+            for item in items:
+                item_id = item.get("id", None)
+                if item_id and item_id in existing_item_ids:
+                    Item.objects.filter(id=item_id).update(**item)
+                else:
+                    new_items.append(Item(**item))
+                    
+            created_items = Item.objects.bulk_create(new_items)
+            instance.items.add(*created_items)
 
         return Response(
             {"message": "Updated Supplier successfully", "data": serializer.data},
@@ -152,7 +184,8 @@ class SupplierViewSet(ModelViewSet):
         instance = self.get_object()
         instance.delete()
         return Response(
-            {"message": "Supplier deleted successfully"}, status=status.HTTP_204_NO_CONTENT
+            {"message": "Supplier deleted successfully"},
+            status=status.HTTP_204_NO_CONTENT,
         )
 
 
@@ -160,18 +193,18 @@ class GetSupplierItems(APIView):
     """
     View for handling all the Items supplied by a supplier.
     """
-    
+
     def get(self, request, supplier_id, *args, **kwargs):
         """
         Retrieve all the Items supplied by a supplier.
 
         It returns a list of Item data with a 200 OK status.
         """
-        
+
         supplier = get_object_or_404(Supplier, id=supplier_id)
-        
+
         items = supplier.items.all()
-        serializer = ItemDataWithoutSupplierSerializer(items, many=True)
+        serializer = ItemSerializer(items, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
@@ -179,17 +212,16 @@ class GetItemsSupplier(APIView):
     """
     View for handling all the Items supplied by a supplier.
     """
-    
+
     def get(self, request, item_id, *args, **kwargs):
         """
         Retrieve all the Suppliers for an item.
 
         It returns a list of suppliers data with a 200 OK status.
         """
-        
+
         items = get_object_or_404(Item, id=item_id)
-        
+
         suppliers = items.suppliers.all()
         serializer = SupplierDataWithoutItemsSerializer(suppliers, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-        
