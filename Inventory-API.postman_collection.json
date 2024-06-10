@@ -26,73 +26,7 @@
 							]
 						}
 					},
-					"response": [
-						{
-							"name": "Get Suppliers",
-							"originalRequest": {
-								"method": "GET",
-								"header": [],
-								"url": {
-									"raw": "{{host}}/api/inventory/suppliers",
-									"host": [
-										"{{host}}"
-									],
-									"path": [
-										"api",
-										"inventory",
-										"suppliers"
-									]
-								}
-							},
-							"status": "OK",
-							"code": 200,
-							"_postman_previewlanguage": "json",
-							"header": [
-								{
-									"key": "Date",
-									"value": "Mon, 10 Jun 2024 12:53:00 GMT"
-								},
-								{
-									"key": "Server",
-									"value": "WSGIServer/0.2 CPython/3.12.0"
-								},
-								{
-									"key": "Content-Type",
-									"value": "application/json"
-								},
-								{
-									"key": "Vary",
-									"value": "Accept, Cookie"
-								},
-								{
-									"key": "Allow",
-									"value": "GET, POST, HEAD, OPTIONS"
-								},
-								{
-									"key": "X-Frame-Options",
-									"value": "DENY"
-								},
-								{
-									"key": "Content-Length",
-									"value": "518"
-								},
-								{
-									"key": "X-Content-Type-Options",
-									"value": "nosniff"
-								},
-								{
-									"key": "Referrer-Policy",
-									"value": "same-origin"
-								},
-								{
-									"key": "Cross-Origin-Opener-Policy",
-									"value": "same-origin"
-								}
-							],
-							"cookie": [],
-							"body": "[\n    {\n        \"id\": 1,\n        \"item\": {\n            \"5\": \"IHiescense TV 430\",\n            \"6\": \"IHiescense TV 430\",\n            \"7\": \"Sony Explorer TV 430\",\n            \"8\": \"Sony Explorer TV 430\",\n            \"9\": \"Sony Explorer TV 430\",\n            \"10\": \"Sony Explorer TV 430\"\n        },\n        \"name\": \"Timi Default One\",\n        \"contact_info\": \"+1 234 906 789\",\n        \"created_at\": \"2024-06-10T09:15:30.169904Z\",\n        \"updated_at\": \"2024-06-10T09:15:30.169904Z\"\n    },\n    {\n        \"id\": 2,\n        \"item\": {\n            \"1\": \"Item 330\",\n            \"6\": \"IHiescense TV 430\"\n        },\n        \"name\": \"Priority Soft\",\n        \"contact_info\": \"+1 234 906 789\",\n        \"created_at\": \"2024-06-10T09:43:47.868993Z\",\n        \"updated_at\": \"2024-06-10T09:53:45.920643Z\"\n    }\n]"
-						}
-					]
+					"response": []
 				},
 				{
 					"name": "Create Suppliers",
@@ -101,7 +35,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Candro Ephises\",\r\n    \"contact_info\": \"+1 234 906 789\"\r\n}",
+							"raw": "{\r\n    \"name\": \"Mendeor ThankHin\",\r\n    \"contact_info\": \"+1 234 906 789\",\r\n    \"items\": [2, 3]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -164,7 +98,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Priority Soft\"\r\n}",
+							"raw": "{\r\n    \"items\": 1,\r\n    \"contact_info\": \"+23 819 709\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -345,7 +279,7 @@
 							"variable": [
 								{
 									"key": "item_id",
-									"value": "23"
+									"value": "3"
 								}
 							]
 						}
@@ -488,7 +422,7 @@
 							"header": [
 								{
 									"key": "Date",
-									"value": "Mon, 10 Jun 2024 13:21:30 GMT"
+									"value": "Mon, 10 Jun 2024 18:38:05 GMT"
 								},
 								{
 									"key": "Server",
@@ -512,7 +446,7 @@
 								},
 								{
 									"key": "Content-Length",
-									"value": "4017"
+									"value": "629"
 								},
 								{
 									"key": "X-Content-Type-Options",
@@ -528,7 +462,7 @@
 								}
 							],
 							"cookie": [],
-							"body": "[\n    {\n        \"id\": 19,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\",\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Counter effect of woodend Frames\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:18:13.652784Z\",\n        \"updated_at\": \"2024-06-10T13:18:13.652784Z\"\n    },\n    {\n        \"id\": 18,\n        \"suppliers\": {},\n        \"name\": \"Counter effect of woodend Frames\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:16:10.009571Z\",\n        \"updated_at\": \"2024-06-10T13:16:10.009571Z\"\n    },\n    {\n        \"id\": 17,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\",\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Wooden Frame\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:15:09.395873Z\",\n        \"updated_at\": \"2024-06-10T13:15:09.395873Z\"\n    },\n    {\n        \"id\": 16,\n        \"suppliers\": {\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Wooden Frame\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:09:48.821768Z\",\n        \"updated_at\": \"2024-06-10T13:09:48.821768Z\"\n    },\n    {\n        \"id\": 15,\n        \"suppliers\": {\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Manterial Sheets\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:09:06.018681Z\",\n        \"updated_at\": \"2024-06-10T13:09:06.018681Z\"\n    },\n    {\n        \"id\": 14,\n        \"suppliers\": {\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Manterial Sheets\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:08:18.502389Z\",\n        \"updated_at\": \"2024-06-10T13:08:18.502389Z\"\n    },\n    {\n        \"id\": 13,\n        \"suppliers\": {\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Manterial Sheets\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:06:32.643812Z\",\n        \"updated_at\": \"2024-06-10T13:21:14.023658Z\"\n    },\n    {\n        \"id\": 10,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\"\n        },\n        \"name\": \"Sony Explorer TV 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T12:22:00.178417Z\",\n        \"updated_at\": \"2024-06-10T12:22:00.178417Z\"\n    },\n    {\n        \"id\": 9,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\"\n        },\n        \"name\": \"Sony Explorer TV 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T12:15:39.103797Z\",\n        \"updated_at\": \"2024-06-10T12:15:39.103797Z\"\n    },\n    {\n        \"id\": 8,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\"\n        },\n        \"name\": \"Sony Explorer TV 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T12:06:55.938180Z\",\n        \"updated_at\": \"2024-06-10T12:06:55.938180Z\"\n    },\n    {\n        \"id\": 7,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\"\n        },\n        \"name\": \"Sony Explorer TV 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T12:05:58.225132Z\",\n        \"updated_at\": \"2024-06-10T12:05:58.225132Z\"\n    },\n    {\n        \"id\": 6,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\",\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"IHiescense TV 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"120.99\",\n        \"created_at\": \"2024-06-10T09:50:54.138084Z\",\n        \"updated_at\": \"2024-06-10T09:50:54.138084Z\"\n    },\n    {\n        \"id\": 5,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\"\n        },\n        \"name\": \"IHiescense TV 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"120.99\",\n        \"created_at\": \"2024-06-10T09:50:29.914019Z\",\n        \"updated_at\": \"2024-06-10T09:50:29.914019Z\"\n    },\n    {\n        \"id\": 4,\n        \"suppliers\": {},\n        \"name\": \"Item 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"120.99\",\n        \"created_at\": \"2024-06-10T09:43:57.268155Z\",\n        \"updated_at\": \"2024-06-10T09:43:57.268155Z\"\n    },\n    {\n        \"id\": 3,\n        \"suppliers\": {},\n        \"name\": \"Item 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"120.99\",\n        \"created_at\": \"2024-06-10T09:43:36.897320Z\",\n        \"updated_at\": \"2024-06-10T09:43:36.897320Z\"\n    },\n    {\n        \"id\": 1,\n        \"suppliers\": {\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Item 330\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"100.99\",\n        \"created_at\": \"2024-06-10T09:41:58.904429Z\",\n        \"updated_at\": \"2024-06-10T09:52:02.701610Z\"\n    }\n]"
+							"body": "[\n    {\n        \"id\": 1,\n        \"name\": \"Airpods Max\",\n        \"price\": \"120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T18:33:42.198597Z\",\n        \"updated_at\": \"2024-06-10T18:33:42.198597Z\"\n    },\n    {\n        \"id\": 2,\n        \"name\": \"Sony Earphone\",\n        \"price\": \"120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T18:36:03.537020Z\",\n        \"updated_at\": \"2024-06-10T18:36:03.537020Z\"\n    },\n    {\n        \"id\": 3,\n        \"name\": \"Air Jordans 2\",\n        \"price\": \"120.99\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"created_at\": \"2024-06-10T18:37:51.900114Z\",\n        \"updated_at\": \"2024-06-10T18:37:51.900114Z\"\n    }\n]"
 						}
 					]
 				},
@@ -563,7 +497,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "10"
+									"value": "1"
 								}
 							]
 						}
@@ -577,7 +511,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Airpods Max\",\r\n    \"description\": \"This item is a valuable cross road enterprise data insence\",\r\n    \"price\": \"120.99\",\r\n    \"suppliers\": [2, 1]\r\n}",
+							"raw": "{\r\n    \"name\": \"Air Jordans 2\",\r\n    \"description\": \"This item is a valuable cross road enterprise data insence\",\r\n    \"price\": \"120.99\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -605,7 +539,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"suppliers\": 1\r\n}",
+							"raw": "{\r\n    \"name\": \"Sony HeadPhones Plus one Bit\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -626,7 +560,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "14"
+									"value": "2"
 								}
 							]
 						}
