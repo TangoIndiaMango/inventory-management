@@ -1,0 +1,555 @@
+{
+	"info": {
+		"_postman_id": "41611444-144f-40b5-8164-292e6303d5e9",
+		"name": "Inventory-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "21378195"
+	},
+	"item": [
+		{
+			"name": "Suppliers",
+			"item": [
+				{
+					"name": "Get Suppliers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/inventory/suppliers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"suppliers"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Suppliers",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/api/inventory/suppliers",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"inventory",
+										"suppliers"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 12:53:00 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "518"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 1,\n        \"item\": {\n            \"5\": \"IHiescense TV 430\",\n            \"6\": \"IHiescense TV 430\",\n            \"7\": \"Sony Explorer TV 430\",\n            \"8\": \"Sony Explorer TV 430\",\n            \"9\": \"Sony Explorer TV 430\",\n            \"10\": \"Sony Explorer TV 430\"\n        },\n        \"name\": \"Timi Default One\",\n        \"contact_info\": \"+1 234 906 789\",\n        \"created_at\": \"2024-06-10T09:15:30.169904Z\",\n        \"updated_at\": \"2024-06-10T09:15:30.169904Z\"\n    },\n    {\n        \"id\": 2,\n        \"item\": {\n            \"1\": \"Item 330\",\n            \"6\": \"IHiescense TV 430\"\n        },\n        \"name\": \"Priority Soft\",\n        \"contact_info\": \"+1 234 906 789\",\n        \"created_at\": \"2024-06-10T09:43:47.868993Z\",\n        \"updated_at\": \"2024-06-10T09:53:45.920643Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Create Suppliers",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Candro Ephises\",\r\n    \"contact_info\": \"+1 234 906 789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/inventory/suppliers",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"suppliers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Suppliers",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Timi Default One\",\r\n    \"contact_info\": \"+1 234 906 789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/inventory/suppliers/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"suppliers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Suppliers",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Priority Soft\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/inventory/suppliers/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"suppliers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get single Supplier",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{host}}/api/inventory/suppliers/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"suppliers",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "**GET** `/api/inventory/suppliers/`\n\n- List all suppliers.\n    \n\n**POST** `/api/inventory/suppliers/`\n\n- Create a new supplier.\n    \n- Request body: `{ \"name\": \"Supplier Name\", \"contact_info\": \"Contact Information\" }`\n    \n\n**GET** `/api/inventory/suppliers/{id}/`\n\n- Retrieve a single supplier by ID.\n    \n\n**PATCH** `/api/inventory/suppliers/{id}/`\n\n- Update a supplier by ID.\n    \n- Request body: `{ \"name\": \"Updated Name\", \"contact_info\": \"Updated Contact Information\" }`\n    \n\n**DELETE** `/api/inventory/suppliers/{id}/`\n\n- Delete a supplier by ID."
+		},
+		{
+			"name": "Inventory Item",
+			"item": [
+				{
+					"name": "Get Items",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Timi Default One\",\r\n    \"contact_info\": \"+1 234 906 789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/inventory/items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"items"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Get Items",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Timi Default One\",\r\n    \"contact_info\": \"+1 234 906 789\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/inventory/items",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"inventory",
+										"items"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 13:21:30 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, POST, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "4017"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "[\n    {\n        \"id\": 19,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\",\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Counter effect of woodend Frames\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:18:13.652784Z\",\n        \"updated_at\": \"2024-06-10T13:18:13.652784Z\"\n    },\n    {\n        \"id\": 18,\n        \"suppliers\": {},\n        \"name\": \"Counter effect of woodend Frames\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:16:10.009571Z\",\n        \"updated_at\": \"2024-06-10T13:16:10.009571Z\"\n    },\n    {\n        \"id\": 17,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\",\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Wooden Frame\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:15:09.395873Z\",\n        \"updated_at\": \"2024-06-10T13:15:09.395873Z\"\n    },\n    {\n        \"id\": 16,\n        \"suppliers\": {\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Wooden Frame\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:09:48.821768Z\",\n        \"updated_at\": \"2024-06-10T13:09:48.821768Z\"\n    },\n    {\n        \"id\": 15,\n        \"suppliers\": {\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Manterial Sheets\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:09:06.018681Z\",\n        \"updated_at\": \"2024-06-10T13:09:06.018681Z\"\n    },\n    {\n        \"id\": 14,\n        \"suppliers\": {\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Manterial Sheets\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:08:18.502389Z\",\n        \"updated_at\": \"2024-06-10T13:08:18.502389Z\"\n    },\n    {\n        \"id\": 13,\n        \"suppliers\": {\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Manterial Sheets\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T13:06:32.643812Z\",\n        \"updated_at\": \"2024-06-10T13:21:14.023658Z\"\n    },\n    {\n        \"id\": 10,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\"\n        },\n        \"name\": \"Sony Explorer TV 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T12:22:00.178417Z\",\n        \"updated_at\": \"2024-06-10T12:22:00.178417Z\"\n    },\n    {\n        \"id\": 9,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\"\n        },\n        \"name\": \"Sony Explorer TV 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T12:15:39.103797Z\",\n        \"updated_at\": \"2024-06-10T12:15:39.103797Z\"\n    },\n    {\n        \"id\": 8,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\"\n        },\n        \"name\": \"Sony Explorer TV 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T12:06:55.938180Z\",\n        \"updated_at\": \"2024-06-10T12:06:55.938180Z\"\n    },\n    {\n        \"id\": 7,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\"\n        },\n        \"name\": \"Sony Explorer TV 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"1120.99\",\n        \"created_at\": \"2024-06-10T12:05:58.225132Z\",\n        \"updated_at\": \"2024-06-10T12:05:58.225132Z\"\n    },\n    {\n        \"id\": 6,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\",\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"IHiescense TV 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"120.99\",\n        \"created_at\": \"2024-06-10T09:50:54.138084Z\",\n        \"updated_at\": \"2024-06-10T09:50:54.138084Z\"\n    },\n    {\n        \"id\": 5,\n        \"suppliers\": {\n            \"1\": \"Timi Default One\"\n        },\n        \"name\": \"IHiescense TV 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"120.99\",\n        \"created_at\": \"2024-06-10T09:50:29.914019Z\",\n        \"updated_at\": \"2024-06-10T09:50:29.914019Z\"\n    },\n    {\n        \"id\": 4,\n        \"suppliers\": {},\n        \"name\": \"Item 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"120.99\",\n        \"created_at\": \"2024-06-10T09:43:57.268155Z\",\n        \"updated_at\": \"2024-06-10T09:43:57.268155Z\"\n    },\n    {\n        \"id\": 3,\n        \"suppliers\": {},\n        \"name\": \"Item 430\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"120.99\",\n        \"created_at\": \"2024-06-10T09:43:36.897320Z\",\n        \"updated_at\": \"2024-06-10T09:43:36.897320Z\"\n    },\n    {\n        \"id\": 1,\n        \"suppliers\": {\n            \"2\": \"Priority Soft\"\n        },\n        \"name\": \"Item 330\",\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\n        \"price\": \"100.99\",\n        \"created_at\": \"2024-06-10T09:41:58.904429Z\",\n        \"updated_at\": \"2024-06-10T09:52:02.701610Z\"\n    }\n]"
+						}
+					]
+				},
+				{
+					"name": "Get Single Item",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Timi Default One\",\r\n    \"contact_info\": \"+1 234 906 789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/inventory/items/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Items",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Airpods Max\",\r\n    \"description\": \"This item is a valuable cross road enterprise data insence\",\r\n    \"price\": \"120.99\",\r\n    \"suppliers\": [2, 1]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/inventory/items",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"items"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Items",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"suppliers\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/inventory/items/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "14"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Items",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Item 330\",\r\n    \"description\": \"This item is a valuable cross road enterprise data insence\",\r\n    \"price\": \"100.99\",\r\n    \"suppliers\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{host}}/api/inventory/items/:id",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"api",
+								"inventory",
+								"items",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "12"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Delete Items",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Item 330\",\r\n    \"description\": \"This item is a valuable cross road enterprise data insence\",\r\n    \"price\": \"100.99\",\r\n    \"suppliers\": 1\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{host}}/api/inventory/items/:id",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"api",
+										"inventory",
+										"items",
+										":id"
+									],
+									"variable": [
+										{
+											"key": "id",
+											"value": "12"
+										}
+									]
+								}
+							},
+							"status": "No Content",
+							"code": 204,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Date",
+									"value": "Mon, 10 Jun 2024 13:08:00 GMT"
+								},
+								{
+									"key": "Server",
+									"value": "WSGIServer/0.2 CPython/3.12.0"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "Vary",
+									"value": "Accept, Cookie"
+								},
+								{
+									"key": "Allow",
+									"value": "GET, PUT, PATCH, DELETE, HEAD, OPTIONS"
+								},
+								{
+									"key": "X-Frame-Options",
+									"value": "DENY"
+								},
+								{
+									"key": "Content-Length",
+									"value": "39"
+								},
+								{
+									"key": "X-Content-Type-Options",
+									"value": "nosniff"
+								},
+								{
+									"key": "Referrer-Policy",
+									"value": "same-origin"
+								},
+								{
+									"key": "Cross-Origin-Opener-Policy",
+									"value": "same-origin"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Item deleted successfully\"\n}"
+						}
+					]
+				}
+			],
+			"description": "**GET** `/api/inventory/items/`\n\n- List all items.\n    \n\n**POST** `/api/inventory/items/`\n\n- Create a new item.\n    \n- Request body: `{ \"name\": \"Item Name\", \"description\": \"Item Description\", \"price\": 99.99, \"suppliers\": [1, 2] }`\n    \n- The `suppliers` field should be a list of supplier IDs.\n    \n\n**GET** `/api/inventory/items/{id}/`\n\n- Retrieve a single item by ID.\n    \n\n**PATCH** `/api/inventory/items/{id}/`\n\n- Update an item by ID.\n    \n- Request body: `{ \"name\": \"Updated Name\", \"description\": \"Updated Description\", \"price\": 99.99, \"suppliers\": [1, 2] }`\n    \n- The `suppliers` field should be a list of supplier IDs.\n    \n\n**DELETE** `/api/inventory/items/{id}/`\n\n- Delete an item by ID.\n    \n\nNote: The response for creating and updating items will include the associated supplier data in the `supplier_data` field."
+		}
+	]
+}
