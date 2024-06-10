@@ -35,7 +35,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Secret User\",\r\n    \"contact_info\": \"+1 234 906 789\",\r\n    \"items\": [\r\n        {\r\n            \"name\": \"Monitor LCD curved\",\r\n            \"description\": \"This item is a valuable cross road enterprise data insence\",\r\n            \"price\": \"120.99\"\r\n        },\r\n        {\r\n            \"name\": \"Pangea Cup\",\r\n            \"description\": \"This item is a valuable cross road enterprise data insence\",\r\n            \"price\": \"1120.99\"\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"name\": \"Wakanda Foreever\",\r\n    \"contact_info\": \"+1 234 906 789\",\r\n    \"items\": [\r\n        11, 10, {\r\n            \"name\": \"Calipher New\",\r\n            \"description\": \"PS5\",\r\n            \"price\": \"1209.99\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -227,7 +227,7 @@
 							"variable": [
 								{
 									"key": "id",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						}
@@ -409,7 +409,7 @@
 					]
 				}
 			],
-			"description": "**GET** `/api/inventory/suppliers/`\n\n- List all suppliers.\n    \n\n**POST** `/api/inventory/suppliers/`\n\n- Create a new supplier.\n    \n- Request body: `{ \"name\": \"Supplier Name\", \"contact_info\": \"Contact Information\" }`\n    \n\n**GET** `/api/inventory/suppliers/{id}/`\n\n- Retrieve a single supplier by ID.\n    \n\n**PATCH** `/api/inventory/suppliers/{id}/`\n\n- Update a supplier by ID.\n    \n- Request body: `{ \"name\": \"Updated Name\", \"contact_info\": \"Updated Contact Information\" }`\n    \n\n**DELETE** `/api/inventory/suppliers/{id}/`\n\n- Delete a supplier by ID."
+			"description": "#### GET /api/inventory/suppliers/\n\nList all suppliers.\n\n**Response:**\n\n```\n[\n    {\n        \"id\": 4,\n        \"items\": {\n            \"9\": \"Monitor LCD curved\",\n            \"10\": \"Pangea World\",\n            \"11\": \"Football\",\n            \"12\": \"Wantaga\"\n        },\n        \"name\": \"Secret TwoTango\",\n        \"contact_info\": \"+1 234 906 789\",\n        \"created_at\": \"2024-06-10T22:31:39.379748Z\",\n        \"updated_at\": \"2024-06-10T22:33:32.504058Z\"\n    },\n    {\n        \"id\": 3,\n        \"items\": {\n            \"4\": \"Merin Flocks\",\n            \"5\": \"Rollie Shirt\",\n            \"6\": \"Briggs Perfume De elante\",\n            \"7\": \"Briggs De elante\",\n            \"8\": \"Football CR7\"\n        },\n        \"name\": \"Timmy TwoTango\",\n        \"contact_info\": \"+1 234 906 789\",\n        \"created_at\": \"2024-06-10T21:40:19.779444Z\",\n        \"updated_at\": \"2024-06-10T22:12:35.940248Z\"\n    },\n    ...\n]\n\n ```\n\n#### POST /api/inventory/suppliers/\n\nCreate a new supplier and associate it with items.\n\n**Request Body:**\n\n```\n{\n    \"name\": \"Manger Helper\",\n    \"contact_info\": \"+1 234 906 789\",\n    \"items\": [\n        {\n            \"name\": \"Monitor LCD curved\",\n            \"description\": \"This item is a valuable cross road enterprise data insence\",\n            \"price\": \"120.99\"\n        },\n        {\n            \"name\": \"Pangea Cup\",\n            \"description\": \"This item is a valuable cross road enterprise data insence\",\n            \"price\": \"1120.99\"\n        }\n    ]\n}\n\n ```\n\n**Response:**\n\n```\n{\n    \"id\": 5,\n    \"items\": [\n        {\n            \"id\": 13,\n            \"name\": \"Monitor LCD curved\",\n            \"description\": \"This item is a valuable cross road enterprise data insence\",\n            \"price\": \"120.99\",\n            \"created_at\": \"2024-06-10T22:48:13.281996Z\",\n            \"updated_at\": \"2024-06-10T22:48:13.281996Z\"\n        },\n        {\n            \"id\": 14,\n            \"name\": \"Pangea Cup\",\n            \"description\": \"This item is a valuable cross road enterprise data insence\",\n            \"price\": \"1120.99\",\n            \"created_at\": \"2024-06-10T22:48:13.281996Z\",\n            \"updated_at\": \"2024-06-10T22:48:13.281996Z\"\n        }\n    ],\n    \"items_data\": [\n        \"13: Monitor LCD curved\",\n        \"14: Pangea Cup\"\n    ],\n    \"name\": \"Manger Helper\",\n    \"contact_info\": \"+1 234 906 789\",\n    \"created_at\": \"2024-06-10T22:48:13.273999Z\",\n    \"updated_at\": \"2024-06-10T22:48:13.273999Z\"\n}\n\n ```\n\n#### GET /api/inventory/suppliers/{id}/\n\nRetrieve a single supplier by ID.\n\n**Response:**\n\n```\n{\n    \"id\": 2,\n    \"items\": {\n        \"1\": \"Airpods Max\",\n        \"2\": \"Sony HeadPhones Plus one Bit\",\n        \"3\": \"Air Jordans 2\"\n    },\n    \"name\": \"Mendeor ThankHin\",\n    \"contact_info\": \"+23 819 709\",\n    \"created_at\": \"2024-06-10T18:40:52.916138Z\",\n    \"updated_at\": \"2024-06-10T18:41:46.511735Z\"\n}\n\n ```\n\n#### PATCH /api/inventory/suppliers/{id}/\n\nUpdate a supplier by ID and associate it with items. Supports partial updates.\n\n**Request Body:**\n\n```\n{\n    \"name\": \"Updated Supplier Name\",\n    \"contact_info\": \"Updated Contact Information\",\n    \"items\": [\n        {\n            \"id\": 1,\n            \"name\": \"Updated Item Name\",\n            \"description\": \"Updated Item Description\",\n            \"price\": \"150.00\"\n        },\n        ...\n    ]\n}\n\n ```\n\n**Response:**\n\n```\n{\n    \"id\": 1,\n    \"name\": \"Updated Supplier Name\",\n    \"contact_info\": \"Updated Contact Information\",\n    \"items\": [\n        {\n            \"id\": 1,\n            \"name\": \"Updated Item Name\",\n            \"description\": \"Updated Item Description\",\n            \"price\": \"150.00\"\n        },\n        ...\n    ]\n}\n\n ```\n\n#### DELETE /api/inventory/suppliers/{id}/\n\nDelete a supplier by ID.\n\n**Response:**\n\n```\n{\n    \"message\": \"Supplier deleted successfully\"\n}\n\n ```"
 		},
 		{
 			"name": "Inventory Item",
@@ -434,7 +434,7 @@
 							"variable": [
 								{
 									"key": "item_id",
-									"value": "3"
+									"value": "10"
 								}
 							]
 						}

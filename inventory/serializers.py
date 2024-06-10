@@ -21,8 +21,7 @@ class SupplierSerializer(serializers.ModelSerializer):
         return {item.id: item.name for item in obj.items.all()}
 
 class SupplierDetailSerializer(serializers.ModelSerializer):
-    # items = serializers.PrimaryKeyRelatedField(queryset=Item.objects.all(), many=True)
-    items = ItemSerializer(many=True)
+    items = ItemSerializer(many=True, required=False)
     items_data = serializers.SerializerMethodField("get_items")
 
     class Meta:
@@ -32,12 +31,23 @@ class SupplierDetailSerializer(serializers.ModelSerializer):
     def validate_items(self, value):
         if len(value) == 0:
             raise serializers.ValidationError("At least one item is required.")
-        # if not isinstance(value, list):
-        #     value = [value]
         return value
 
     def get_items(self, obj):
         return [f"{item.id}: {item.name}" for item in obj.items.all()]
+
+    def to_internal_value(self, data):
+        items_data = data.pop("items", [])
+        data = super().to_internal_value(data)
+        data["items"] = items_data
+        return data
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        items_data = data.pop("items", [])
+        data["items"] = items_data
+        return data
+
 
 
 class SupplierDataWithoutItemsSerializer(serializers.ModelSerializer):

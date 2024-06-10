@@ -77,7 +77,7 @@ class SupplierViewSet(ModelViewSet):
 
         if self.action in ["create", "update", "partial_update"]:
             return SupplierDetailSerializer
-        return SupplierDataWithoutItemsSerializer
+        return SupplierSerializer
 
     def list(self, request, *args, **kwargs):
         """
@@ -117,14 +117,21 @@ class SupplierViewSet(ModelViewSet):
         serializer.validated_data.pop("items")
 
         supplier = serializer.save()
-
-        # for item in items:
-        #     item, _ = Item.objects.get_or_create(**item)
-        #     supplier.items.add(item)
         
-        items = [Item(**item) for item in items_data]
-        created_items = Item.objects.bulk_create(items)
+        existing_item_ids = []
+        new_items = []
+        
+        for item in items_data:
+            if isinstance(item, dict):
+                new_items.append(Item(**item))
+            else:
+                existing_item_ids.append(int(item))
+            
+        created_items = Item.objects.bulk_create(new_items)
         supplier.items.add(*created_items)
+        
+        existing_items = Item.objects.filter(id__in=existing_item_ids)
+        supplier.items.add(*existing_items)
         
         serializer = self.get_serializer(supplier)
         return Response(serializer.data, status=status.HTTP_201_CREATED)
