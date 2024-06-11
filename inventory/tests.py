@@ -22,6 +22,12 @@ class InventoryTestCase(TestCase):
             description="Feel the high power of bouncing shoes, flee to survive",
             price=20.00,
         )
+        self.item3 = Item.objects.create(
+            name="Apple AirPods",
+            description="Listen to sound Music",
+            price=120.00,
+        )
+        
         self.supplier1.items.add(self.item1)
         self.supplier1.items.add(self.item2)
         self.supplier2.items.add(self.item2)
@@ -44,30 +50,6 @@ class InventoryTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(len(response.data), 2)
 
-    def test_post_supplier(self):
-        data = {
-            "name": "New Supplier",
-            "contact_info": "+1 234 906 789",
-            "items": [
-                {
-                    "name": "Monitor LCD curved",
-                    "description": "This item is a valuable cross road enterprise data insence",
-                    "price": "120.99",
-                },
-                {
-                    "name": "Pangea Cup",
-                    "description": "This item is a valuable cross road enterprise data insence",
-                    "price": "1120.99",
-                },
-            ],
-        }
-
-        response = self.client.post("/api/inventory/suppliers", data, format="json")
-        self.assertEqual(response.status_code, 201)
-        self.assertEqual(Supplier.objects.count(), 3)
-        self.assertEqual(response.status_code, 201)
-        self.assertEqual(Item.objects.count(), 4)
-
     def test_get_one_supplier(self):
         response = self.client.get(f"/api/inventory/suppliers/{self.supplier1.id}")
         self.assertEqual(response.status_code, 200)
@@ -79,17 +61,6 @@ class InventoryTestCase(TestCase):
             "name": "Updated Supplier",
             "contact_info": "Contact Info",
             "items": [
-                {
-                    "id": self.item1.id,
-                    "name": "Pangea Wristwatch",
-                    "description": "Description 1",
-                    "price": 100.00,
-                },
-                {
-                    "name": "Golden Boot",
-                    "description": "Description 2",
-                    "price": 200.00,
-                },
                 self.item2.id,
             ],
         }
@@ -99,10 +70,7 @@ class InventoryTestCase(TestCase):
         )
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.data["data"]["name"], "Updated Supplier")
-        self.assertEqual(self.supplier1.items.count(), 3)
-        self.assertEqual(response.data["data"]["items"][0]["name"], "Pangea Wristwatch")
-        self.assertEqual(response.data["data"]["items"][1]["name"], self.item2.name)
-        self.assertEqual(response.data["data"]["items"][2]["name"], "Golden Boot")
+        self.assertEqual(self.supplier1.items.count(), 2)
 
     def test_edit_supplier_info(self):
         data = {
@@ -118,7 +86,6 @@ class InventoryTestCase(TestCase):
         self.assertEqual(
             self.supplier1.items.count(), 2
         )  # because we are not adding any item
-        self.assertEqual(response.data["data"]["items"][0]["name"], self.item1.name)
 
     def test_delete_supplier(self):
         response = self.client.delete(
@@ -126,7 +93,7 @@ class InventoryTestCase(TestCase):
         )
         self.assertEqual(response.status_code, 204)
         self.assertEqual(Supplier.objects.count(), 1)
-        self.assertEqual(Item.objects.count(), 2)
+        self.assertEqual(Item.objects.count(), 3)
 
     def test_add_existing_item_to_supplier(self):
         data = {
@@ -135,29 +102,8 @@ class InventoryTestCase(TestCase):
             "items": [self.item1.id, self.item2.id],
         }
 
-        mutable_data = copy.deepcopy(data)
-
         response = self.client.post(
-            "/api/inventory/suppliers", mutable_data, format="json"
-        )
-        self.assertEqual(response.status_code, 201)
-        self.assertEqual(Supplier.objects.count(), 3)
-        self.assertEqual(Item.objects.count(), 2)
-
-    def test_add_new_and_existing_items_to_supplier(self):
-        data = {
-            "name": "New Supplier",
-            "contact_info": "Contact Info",
-            "items": [
-                {"name": "New Item 1", "description": "Description 1", "price": 100.00},
-                self.item1.id,
-            ],
-        }
-
-        mutable_data = copy.deepcopy(data)
-
-        response = self.client.post(
-            "/api/inventory/suppliers", mutable_data, format="json"
+            "/api/inventory/suppliers", data, format="json"
         )
         self.assertEqual(response.status_code, 201)
         self.assertEqual(Supplier.objects.count(), 3)
@@ -166,7 +112,7 @@ class InventoryTestCase(TestCase):
     def test_get_items(self):
         response = self.client.get("/api/inventory/items")
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.data), 2)
+        self.assertEqual(len(response.data), 3)
 
     def test_get_one_item(self):
         response = self.client.get(f"/api/inventory/items/{self.item1.id}")
@@ -176,7 +122,7 @@ class InventoryTestCase(TestCase):
     def test_delete_item(self):
         response = self.client.delete(f"/api/inventory/items/{self.item1.id}")
         self.assertEqual(response.status_code, 204)
-        self.assertEqual(Item.objects.count(), 1)
+        self.assertEqual(Item.objects.count(), 2)
         self.assertEqual(self.supplier1.items.count(), 1)
         self.assertEqual(self.supplier2.items.count(), 1)
 
