@@ -98,7 +98,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"name\": \"Secret TwoTango\",\r\n    \"contact_info\": \"+1 234 906 789\",\r\n    \"items\": [\r\n        {\r\n            \"name\": \"Wantaga\",\r\n            \"description\": \"Shut\",\r\n            \"price\": \"209.99\"\r\n        },\r\n        {\r\n            \"id\": 10,\r\n            \"name\": \"Pangea World\",\r\n            \"description\": \"PS5\",\r\n            \"price\": \"1209.99\"\r\n        }\r\n    ]\r\n}",
+							"raw": "{\r\n    \"name\": \"Secret TwoTango\",\r\n    \"contact_info\": \"+1 234 906 789\",\r\n    \"items\": [\r\n        3,\r\n        {\r\n        \"id\": 2,\r\n        \"name\": \"Sony HeadPhones Plus one Bit\",\r\n        \"description\": \"This item is a valuable cross road enterprise data insence\",\r\n        \"price\": \"1120.99\"\r\n    },\r\n    6\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -434,7 +434,7 @@
 							"variable": [
 								{
 									"key": "item_id",
-									"value": "10"
+									"value": "1"
 								}
 							]
 						}

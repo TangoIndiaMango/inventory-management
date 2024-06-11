@@ -81,6 +81,7 @@ Here are some example endpoints you can test using Postman or other HTTP clients
     - `GET /api/inventory/suppliers/{id}/` - Retrieve a specific supplier
     - `PUT /api/inventory/suppliers/{id}/` - Update a specific supplier
     - `DELETE /api/inventory/suppliers/{id}/` - Delete a specific supplier
+    - `GET /api/inventory/suppliers/{supplier_id}/items` - Retrieve the Items of a specific Supplier
 
 
 - **Items**
@@ -89,6 +90,7 @@ Here are some example endpoints you can test using Postman or other HTTP clients
     - `GET /api/inventory/items/{id}/` - Retrieve a specific item
     - `PUT /api/inventory/items/{id}/` - Update a specific item
     - `DELETE /api/inventory/items/{id}/` - Delete a specific item
+    - `GET /api/inventory/items/{item_id}/suppliers` - Retrieve the Suppliers of a certain Item
 
 
 
