@@ -149,32 +149,7 @@ class SupplierViewSet(ModelViewSet):
         serializer = self.get_serializer(instance, data=request.data, partial=partial)
 
         serializer.is_valid(raise_exception=True)
-
-        items = request.data.get("items", None)
-    
-        if items is not None:
-            serializer.validated_data.pop("items", None)
-
-        # save the suppliers info
         serializer.save()
-
-        # updating the list of items a supplier provides
-        if items is not None:
-            
-            #  Get all the exxisiting items incase the user wants to update it
-            existing_item_ids = {item.id for item in instance.items.all()}
-
-            new_items = []
-            
-            for item in items:
-                item_id = item.get("id", None)
-                if item_id and item_id in existing_item_ids:
-                    Item.objects.filter(id=item_id).update(**item)
-                else:
-                    new_items.append(Item(**item))
-                    
-            created_items = Item.objects.bulk_create(new_items)
-            instance.items.add(*created_items)
 
         return Response(
             {"message": "Updated Supplier successfully", "data": serializer.data},

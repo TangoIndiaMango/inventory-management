@@ -74,6 +74,36 @@ class InventoryTestCase(TestCase):
         self.assertEqual(response.data["name"], "Tango User")
         self.assertEqual(len(response.data["items"]), 2)
 
+    def test_edit_supplier(self):
+        data = {
+            "name": "Updated Supplier",
+            "contact_info": "Contact Info",
+            "items": [
+                {
+                    "id": self.item1.id,
+                    "name": "Pangea Wristwatch",
+                    "description": "Description 1",
+                    "price": 100.00,
+                },
+                {
+                    "name": "Golden Boot",
+                    "description": "Description 2",
+                    "price": 200.00,
+                },
+                self.item2.id,
+            ],
+        }
+
+        response = self.client.patch(
+            f"/api/inventory/suppliers/{self.supplier1.id}", data, format="json"
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data["data"]["name"], "Updated Supplier")
+        self.assertEqual(self.supplier1.items.count(), 3)
+        self.assertEqual(response.data["data"]["items"][0]["name"], "Pangea Wristwatch")
+        self.assertEqual(response.data["data"]["items"][1]["name"], self.item2.name)
+        self.assertEqual(response.data["data"]["items"][2]["name"], "Golden Boot")
+
     def test_delete_supplier(self):
         response = self.client.delete(
             f"/api/inventory/suppliers/{self.supplier1.id}", format="json"
@@ -129,7 +159,6 @@ class InventoryTestCase(TestCase):
 
     def test_delete_item(self):
         response = self.client.delete(f"/api/inventory/items/{self.item1.id}")
-        print(response)
         self.assertEqual(response.status_code, 204)
         self.assertEqual(Item.objects.count(), 1)
         self.assertEqual(self.supplier1.items.count(), 1)
