@@ -104,6 +104,22 @@ class InventoryTestCase(TestCase):
         self.assertEqual(response.data["data"]["items"][1]["name"], self.item2.name)
         self.assertEqual(response.data["data"]["items"][2]["name"], "Golden Boot")
 
+    def test_edit_supplier_info(self):
+        data = {
+            "name": "Man O War Supplier",
+            "contact_info": "+1234567890",
+        }
+
+        response = self.client.patch(
+            f"/api/inventory/suppliers/{self.supplier1.id}", data, format="json"
+        )
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.data["data"]["name"], "Man O War Supplier")
+        self.assertEqual(
+            self.supplier1.items.count(), 2
+        )  # because we are not adding any item
+        self.assertEqual(response.data["data"]["items"][0]["name"], self.item1.name)
+
     def test_delete_supplier(self):
         response = self.client.delete(
             f"/api/inventory/suppliers/{self.supplier1.id}", format="json"
